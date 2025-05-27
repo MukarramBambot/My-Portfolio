@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-dark text-white font-montserrat overflow-x-hidden;
+}
+
+.custom-cursor {
+  @apply fixed w-8 h-8 rounded-full pointer-events-none z-50 mix-blend-difference;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.8);
+  transition: transform 0.2s ease-out, width 0.2s ease-out, height 0.2s ease-out;
+}
+
+.custom-cursor.hovered {
+  @apply w-16 h-16;
+  mix-blend-mode: difference;
+}
+
+.gradient-text {
+  @apply font-extrabold text-transparent bg-clip-text;
+  background-image: linear-gradient(90deg, #00FFFF, #8A36FF, #FF7D3B);
+  filter: drop-shadow(0 0 0.5em rgba(0, 255, 255, 0.4));
+}
+
+.neon-border {
+  box-shadow: 0 0 5px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.grid-pattern {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+@layer components {
+  .btn-primary {
+    @apply relative py-2.5 px-6 rounded-md bg-dark-300 border border-accent-cyan text-white font-medium 
+    transition-all duration-300 overflow-hidden hover:shadow-[0_0_20px_rgba(0,255,255,0.4)] 
+    before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full 
+    before:bg-gradient-to-r before:from-accent-cyan before:to-accent-purple before:origin-left 
+    before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-300 
+    before:z-[-1] z-10;
+  }
+  
+  .btn-secondary {
+    @apply py-2.5 px-6 rounded-md bg-transparent border border-accent-purple text-white font-medium
+    transition-all duration-300 hover:bg-accent-purple/10 hover:shadow-[0_0_10px_rgba(138,54,255,0.4)];
+  }
+  
+  .section-heading {
+    @apply font-poppins font-bold text-4xl md:text-5xl lg:text-6xl pb-4 relative
+    after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-24 after:h-1 
+    after:bg-gradient-to-r after:from-accent-cyan after:to-accent-purple;
+  }
+}
