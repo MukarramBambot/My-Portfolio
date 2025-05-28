@@ -97,7 +97,6 @@ const Home = ({ onHover }: HomeProps) => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent"></div>
                 
-                {/* Tech icons or badges could go here */}
                 <div className="absolute bottom-4 left-4 right-4 flex gap-3 flex-wrap">
                   <span className="px-3 py-1 bg-dark-300/80 backdrop-blur-sm text-white text-sm rounded-full border border-white/10">
                     Python
@@ -114,13 +113,12 @@ const Home = ({ onHover }: HomeProps) => {
                 </div>
               </div>
               
-              {/* Floating elements */}
               <motion.div 
                 className="absolute -top-5 -right-5 p-3 bg-dark-200 rounded-lg border border-accent-cyan/30 shadow-lg"
                 animate={{ y: [0, -10, 0] }}
                 transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
               >
-                <span className="text-accent-cyan text-sm font-medium">5+ Years Experience</span>
+                <span className="text-accent-cyan text-sm font-medium">Beginner Developer</span>
               </motion.div>
               
               <motion.div 
@@ -128,13 +126,12 @@ const Home = ({ onHover }: HomeProps) => {
                 animate={{ y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 }}
               >
-                <span className="text-accent-purple text-sm font-medium">10+ Projects Completed</span>
+                <span className="text-accent-purple text-sm font-medium">5 Projects Completed</span>
               </motion.div>
             </motion.div>
           </div>
         </div>
         
-        {/* Scroll Indicator */}
         <motion.div 
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
           initial={{ opacity: 0 }}

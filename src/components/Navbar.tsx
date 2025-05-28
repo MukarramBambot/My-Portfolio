@@ -12,12 +12,10 @@ const Navbar = ({ onHover }: NavbarProps) => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  // Close mobile menu when route changes
   useEffect(() => {
     setIsOpen(false);
   }, [location.pathname]);
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -32,7 +30,7 @@ const Navbar = ({ onHover }: NavbarProps) => {
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
-    { name: 'Portfolio', path: '/portfolio' },
+    { name: 'Projects', path: '/portfolio' },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -49,7 +47,6 @@ const Navbar = ({ onHover }: NavbarProps) => {
       }`}
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        {/* Logo */}
         <NavLink 
           to="/" 
           className="text-2xl font-poppins font-bold flex items-center gap-2"
@@ -60,7 +57,6 @@ const Navbar = ({ onHover }: NavbarProps) => {
           <span className="gradient-text">MB</span>
         </NavLink>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           <ul className="flex items-center gap-6">
             {navItems.map((item) => (
@@ -102,7 +98,6 @@ const Navbar = ({ onHover }: NavbarProps) => {
           </div>
         </nav>
 
-        {/* Mobile Menu Toggle */}
         <button 
           className="md:hidden text-white p-2"
           onClick={() => setIsOpen(!isOpen)}
@@ -114,7 +109,6 @@ const Navbar = ({ onHover }: NavbarProps) => {
         </button>
       </div>
 
-      {/* Mobile Navigation */}
       <motion.div 
         className={`md:hidden fixed inset-0 bg-dark z-40 pt-20 px-6`}
         initial={{ x: '100%', opacity: 0 }}

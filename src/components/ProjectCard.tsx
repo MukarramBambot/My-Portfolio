@@ -40,7 +40,6 @@ const ProjectCard = ({ project, onHover }: ProjectCardProps) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Project Image */}
       <div className="relative overflow-hidden h-48">
         <img 
           src={project.image} 
@@ -49,7 +48,6 @@ const ProjectCard = ({ project, onHover }: ProjectCardProps) => {
           style={{ transform: isHovered ? 'scale(1.05)' : 'scale(1)' }}
         />
         
-        {/* Overlay */}
         <div 
           className="absolute inset-0 bg-gradient-to-t from-dark-300/90 to-transparent p-4 flex items-end justify-between opacity-0 transition-opacity duration-300"
           style={{ opacity: isHovered ? 1 : 0 }}
@@ -85,12 +83,10 @@ const ProjectCard = ({ project, onHover }: ProjectCardProps) => {
         </div>
       </div>
       
-      {/* Project Info */}
       <div className="p-5 flex-grow">
         <h3 className="text-xl font-poppins font-bold mb-2 text-white">{project.title}</h3>
         <p className="text-white/70 text-sm mb-4">{project.description}</p>
         
-        {/* Tags */}
         <div className="flex flex-wrap gap-2 mt-auto">
           {project.tags.map((tag, index) => (
             <span 

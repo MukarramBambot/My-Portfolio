@@ -8,81 +8,85 @@ interface PortfolioProps {
 }
 
 const Portfolio = ({ onHover }: PortfolioProps) => {
-  // Sample projects data
   const allProjects: Project[] = [
     {
       id: 1,
-      title: "Nebula Quest",
-      description: "A space exploration game with procedurally generated worlds and strategic combat.",
-      image: "https://images.pexels.com/photos/1252890/pexels-photo-1252890.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      tags: ["Unreal Engine", "C++", "Game Dev"],
-      githubUrl: "https://github.com",
-      liveUrl: "https://example.com"
+      title: "Polished Profile",
+      description: "A resume-building tool to auto-generate polished CVs online. Collaborative project with Cleven Michael Raj.",
+      image: "https://images.pexels.com/photos/3760529/pexels-photo-3760529.jpeg",
+      tags: ["React", "TypeScript", "Resume Builder"],
+      githubUrl: "https://github.com/MukarramBambot/Polished_Profile",
+      liveUrl: "https://mukarrambambot.github.io/Polished_Profile/"
     },
     {
       id: 2,
-      title: "EcoSystem Simulator",
-      description: "A simulation of natural ecosystems with AI-driven creatures and environmental factors.",
-      image: "https://images.pexels.com/photos/957040/night-photograph-starry-sky-night-sky-star-957040.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      tags: ["Unity", "C#", "AI"],
-      githubUrl: "https://github.com"
+      title: "AI Career Compass",
+      description: "AI-powered career path recommendation system based on skills and interests. Team project with Gowtham S, Sai Naveen K, and Sabari Nathan M.",
+      image: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg",
+      tags: ["AI", "React", "Career Guidance"],
+      githubUrl: "https://github.com/MukarramBambot/AI_Career_Compass",
+      liveUrl: "https://ai-career-compass-snowy.vercel.app/"
     },
     {
       id: 3,
-      title: "Portfolio Website",
-      description: "A responsive portfolio website built with React and modern web technologies.",
-      image: "https://images.pexels.com/photos/4974914/pexels-photo-4974914.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      tags: ["React", "TypeScript", "Tailwind"],
-      githubUrl: "https://github.com",
-      liveUrl: "https://example.com"
+      title: "Crypto Knights",
+      description: "Smart personal finance tracker with excellent UI/UX design. Award-winning project at Loyola College Hackathon.",
+      image: "https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg",
+      tags: ["Finance", "React", "UI/UX"],
+      githubUrl: "https://github.com/MukarramBambot/CRYPTO_KNIGHTS",
+      liveUrl: "https://crypto-knights.vercel.app/"
     },
     {
       id: 4,
-      title: "Shadow Tactics",
-      description: "A stealth strategy game where players control a team of specialized agents.",
-      image: "https://images.pexels.com/photos/4974915/pexels-photo-4974915.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      tags: ["Unreal Engine", "Blueprint", "Game Dev"],
-      githubUrl: "https://github.com"
+      title: "PatriGuide",
+      description: "Interactive campus navigation system for Patrician College with voice assistance and QR guidance.",
+      image: "https://images.pexels.com/photos/7376/startup-photos.jpg",
+      tags: ["Navigation", "Voice AI", "QR Code"],
+      githubUrl: "https://github.com/MukarramBambot/PatriGuide",
+      liveUrl: "https://patriguide.vercel.app/"
     },
     {
       id: 5,
-      title: "AI Chess Companion",
-      description: "A chess application with integrated AI opponent and learning assistant.",
-      image: "https://images.pexels.com/photos/1921326/pexels-photo-1921326.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      tags: ["Python", "TensorFlow", "AI"],
-      githubUrl: "https://github.com",
-      liveUrl: "https://example.com"
+      title: "Litter Cam",
+      description: "AI-powered system that detects and penalizes littering behavior via image recognition. Ongoing project with Shalini S.",
+      image: "https://images.pexels.com/photos/1550337/pexels-photo-1550337.jpeg",
+      tags: ["Python", "AI", "Image Recognition"],
+      githubUrl: "https://github.com/MukarramBambot/Litter_Cam"
     },
     {
       id: 6,
-      title: "Crypto Dashboard",
-      description: "Real-time cryptocurrency tracking dashboard with analytics and predictions.",
-      image: "https://images.pexels.com/photos/6771900/pexels-photo-6771900.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      tags: ["React", "Node.js", "API"],
-      githubUrl: "https://github.com",
-      liveUrl: "https://example.com"
+      title: "Vortex Mate",
+      description: "Modern UI Chess game developed in Python. Features an intuitive interface and engaging gameplay.",
+      image: "https://images.pexels.com/photos/411195/pexels-photo-411195.jpeg",
+      tags: ["Python", "Game Dev", "UI Design"],
+      githubUrl: "https://github.com/MukarramBambot/Vortex_Mate"
+    },
+    {
+      id: 7,
+      title: "Solar Commute",
+      description: "Smart IoT system for solar-powered public buses. Currently under development.",
+      image: "https://images.pexels.com/photos/159275/macro-focus-cogwheel-gear-159275.jpeg",
+      tags: ["IoT", "Solar", "Hardware"],
+      githubUrl: "https://github.com/MukarramBambot/Solar-Commute"
     }
   ];
   
-  // Filter categories
-  const categories = ["All", "Game Dev", "Web", "AI", "Mobile"];
+  const categories = ["All", "Web Dev", "AI/ML", "IoT", "Game Dev"];
   const [activeFilter, setActiveFilter] = useState("All");
   
-  // Filtered projects
   const filteredProjects = activeFilter === "All" 
     ? allProjects 
     : allProjects.filter(project => {
-        if (activeFilter === "Game Dev") return project.tags.some(tag => ["Game Dev", "Unreal Engine", "Unity"].includes(tag));
-        if (activeFilter === "Web") return project.tags.some(tag => ["React", "TypeScript", "Node.js"].includes(tag));
-        if (activeFilter === "AI") return project.tags.some(tag => ["AI", "TensorFlow"].includes(tag));
-        if (activeFilter === "Mobile") return project.tags.some(tag => ["Mobile", "React Native"].includes(tag));
+        if (activeFilter === "Web Dev") return project.tags.some(tag => ["React", "TypeScript", "UI/UX"].includes(tag));
+        if (activeFilter === "AI/ML") return project.tags.some(tag => ["AI", "Image Recognition"].includes(tag));
+        if (activeFilter === "IoT") return project.tags.some(tag => ["IoT", "Hardware"].includes(tag));
+        if (activeFilter === "Game Dev") return project.tags.some(tag => ["Game Dev"].includes(tag));
         return false;
       });
 
   return (
     <PageTransition>
       <section className="pt-24 pb-16 min-h-screen relative overflow-hidden">
-        {/* Background Elements */}
         <div className="absolute inset-0 grid-pattern opacity-30"></div>
         
         <div className="absolute top-0 right-0 w-full h-full overflow-hidden pointer-events-none">
@@ -98,7 +102,7 @@ const Portfolio = ({ onHover }: PortfolioProps) => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              My Portfolio
+              My Projects
             </motion.h1>
             <motion.div 
               className="w-24 h-1 bg-accent-cyan mx-auto rounded-full"
@@ -114,11 +118,10 @@ const Portfolio = ({ onHover }: PortfolioProps) => {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              Explore my latest projects and creations. From games to web applications, these projects showcase my skills and passion for development.
+              Explore my latest projects and creations. From web applications to AI solutions, these projects showcase my skills and passion for development.
             </motion.p>
           </div>
           
-          {/* Filter Buttons */}
           <div className="flex flex-wrap justify-center gap-3 mb-12">
             {categories.map((category, index) => (
               <motion.button
@@ -141,7 +144,6 @@ const Portfolio = ({ onHover }: PortfolioProps) => {
             ))}
           </div>
           
-          {/* Projects Grid */}
           <motion.div 
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             layout
@@ -150,23 +152,6 @@ const Portfolio = ({ onHover }: PortfolioProps) => {
             {filteredProjects.map((project) => (
               <ProjectCard key={project.id} project={project} onHover={onHover} />
             ))}
-          </motion.div>
-          
-          {/* Show More Button (could be functional with pagination) */}
-          <motion.div 
-            className="text-center mt-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <button 
-              className="btn-secondary"
-              onMouseEnter={() => onHover(true)}
-              onMouseLeave={() => onHover(false)}
-            >
-              View More Projects
-            </button>
           </motion.div>
         </div>
       </section>
