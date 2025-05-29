@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Code, Lightbulb, GraduationCap } from 'lucide-react';
 import PageTransition from '../components/PageTransition';
 import SkillBar from '../components/SkillBar';
-import MB from '../src/assets/images/MB.jpg'
+import MB from '../assets/images/MB.jpg'
 
 interface AboutProps {
   onHover: (isHovered: boolean) => void;
