@@ -91,7 +91,7 @@ const Home = ({ onHover }: HomeProps) => {
             >
               <div className="relative w-full h-[400px] md:h-[500px] rounded-lg overflow-hidden border border-white/10 neon-border">
                 <img 
-                  src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+                  src="../src/assets/images/Home.jpg" 
                   alt="Developer workspace with computer screens showing game development" 
                   className="w-full h-full object-cover"
                 />

@@ -5,7 +5,7 @@ import { AnimatePresence } from 'framer-motion';
 // Pages
 import Home from './pages/Home';
 import About from './pages/About';
-import Portfolio from './pages/Portfolio';
+import Portfolio from './pages/Projects';
 import Contact from './pages/Contact';
 import Achievements from './pages/Achievements';
 

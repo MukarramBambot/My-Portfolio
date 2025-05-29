@@ -10,12 +10,12 @@ interface AboutProps {
 
 const About = ({ onHover }: AboutProps) => {
   const skills = [
-    { name: "Python", percentage: 95, color: "#3776AB" },
-    { name: "C++", percentage: 85, color: "#00599C" },
-    { name: "Unreal Engine", percentage: 90, color: "#0E1128" },
-    { name: "React", percentage: 75, color: "#61DAFB" },
-    { name: "JavaScript", percentage: 80, color: "#F7DF1E" },
-    { name: "Game Design", percentage: 85, color: "#FF3860" },
+    { name: "Python", percentage: 45, color: "#3776AB" },
+    { name: "C++", percentage: 35, color: "#00599C" },
+    { name: "Unreal Engine", percentage: 40, color: "#0E1128" },
+    { name: "React", percentage: 25, color: "#61DAFB" },
+    { name: "JavaScript", percentage: 30, color: "#F7DF1E" },
+    { name: "Game Design", percentage: 20, color: "#FF3860" },
   ];
 
   const experiences = [
@@ -68,7 +68,7 @@ const About = ({ onHover }: AboutProps) => {
             >
               <div className="relative w-full max-w-md mx-auto lg:mx-0 aspect-[4/5] rounded-lg overflow-hidden border border-white/10 neon-border">
                 <img 
-                  src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg" 
+                  src="../src/assets/images/MB.jpg" 
                   alt="Mukarram Bambot" 
                   className="w-full h-full object-cover"
                 />
@@ -84,8 +84,8 @@ const About = ({ onHover }: AboutProps) => {
                 viewport={{ once: true }}
               >
                 <div className="text-center">
-                  <span className="block text-3xl font-bold text-accent-purple">5+</span>
-                  <span className="text-white text-sm">Years of Experience</span>
+                  <span className="block text-3xl font-bold text-accent-purple">1</span>
+                  <span className="text-white text-sm">Year of Experience</span>
                 </div>
               </motion.div>
             </motion.div>
@@ -111,11 +111,11 @@ const About = ({ onHover }: AboutProps) => {
               {/* Stats */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                 <div className="bg-dark-200 p-4 rounded-lg border border-white/5 text-center">
-                  <span className="block text-3xl font-bold text-accent-cyan mb-1">10+</span>
+                  <span className="block text-3xl font-bold text-accent-cyan mb-1">6+</span>
                   <span className="text-white/70 text-sm">Projects</span>
                 </div>
                 <div className="bg-dark-200 p-4 rounded-lg border border-white/5 text-center">
-                  <span className="block text-3xl font-bold text-accent-purple mb-1">5+</span>
+                  <span className="block text-3xl font-bold text-accent-purple mb-1">3+</span>
                   <span className="text-white/70 text-sm">Languages</span>
                 </div>
                 <div className="bg-dark-200 p-4 rounded-lg border border-white/5 text-center">
@@ -123,7 +123,7 @@ const About = ({ onHover }: AboutProps) => {
                   <span className="text-white/70 text-sm">Hackathons</span>
                 </div>
                 <div className="bg-dark-200 p-4 rounded-lg border border-white/5 text-center">
-                  <span className="block text-3xl font-bold text-accent-cyan mb-1">15+</span>
+                  <span className="block text-3xl font-bold text-accent-cyan mb-1">2+</span>
                   <span className="text-white/70 text-sm">Clients</span>
                 </div>
               </div>
