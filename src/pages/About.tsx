@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Code, Award, Lightbulb, GraduationCap } from 'lucide-react';
+import { Code, Lightbulb, GraduationCap } from 'lucide-react';
 import PageTransition from '../components/PageTransition';
 import SkillBar from '../components/SkillBar';
 
@@ -20,22 +20,10 @@ const About = ({ onHover }: AboutProps) => {
 
   const experiences = [
     {
-      year: "2023 - Present",
+      year: "2022 - 2025",
       title: "BCA Student",
-      company: "Patrician College",
-      description: "Pursuing Bachelor of Computer Applications with focus on programming and game development."
-    },
-    {
-      year: "2022 - 2023",
-      title: "Game Developer Intern",
-      company: "TechStudio Games",
-      description: "Worked on developing game mechanics and UI elements for mobile games."
-    },
-    {
-      year: "2021 - 2022",
-      title: "Freelance Developer",
-      company: "Self-employed",
-      description: "Created custom software solutions and small game projects for clients."
+      company: "Patrician College of Arts and Science",
+      description: "Pursuing Bachelor of Computer Applications."
     }
   ];
 
@@ -80,7 +68,7 @@ const About = ({ onHover }: AboutProps) => {
             >
               <div className="relative w-full max-w-md mx-auto lg:mx-0 aspect-[4/5] rounded-lg overflow-hidden border border-white/10 neon-border">
                 <img 
-                  src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+                  src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg" 
                   alt="Mukarram Bambot" 
                   className="w-full h-full object-cover"
                 />
@@ -178,7 +166,7 @@ const About = ({ onHover }: AboutProps) => {
           </div>
           
           {/* Experience Timeline */}
-          <div className="mb-20">
+          <div>
             <motion.h2 
               className="text-3xl font-poppins font-bold mb-8 relative pb-3 inline-block
               after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-1 
@@ -202,60 +190,12 @@ const About = ({ onHover }: AboutProps) => {
                   viewport={{ once: true }}
                 >
                   <div className="absolute -left-12 w-8 h-8 bg-dark-200 rounded-full border-2 border-accent-cyan flex items-center justify-center">
-                    {index === 0 ? (
-                      <GraduationCap size={16} className="text-accent-cyan" />
-                    ) : index === 1 ? (
-                      <Code size={16} className="text-accent-cyan" />
-                    ) : (
-                      <Lightbulb size={16} className="text-accent-cyan" />
-                    )}
+                    <GraduationCap size={16} className="text-accent-cyan" />
                   </div>
                   <span className="text-sm text-accent-cyan font-medium">{exp.year}</span>
                   <h3 className="text-xl font-bold mt-1">{exp.title}</h3>
                   <p className="text-white/70 mb-2">{exp.company}</p>
                   <p className="text-white/60">{exp.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-          
-          {/* Achievements */}
-          <div>
-            <motion.h2 
-              className="text-3xl font-poppins font-bold mb-8 relative pb-3 inline-block
-              after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-1 
-              after:bg-gradient-to-r after:from-accent-cyan after:to-accent-purple"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              Achievements
-            </motion.h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[1, 2, 3].map((item, index) => (
-                <motion.div 
-                  key={index}
-                  className="bg-dark-200 p-6 rounded-lg border border-white/5 hover:border-accent-cyan/30 transition-all duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="p-3 bg-dark-300 rounded-full w-14 h-14 flex items-center justify-center mb-4">
-                    <Award className="text-accent-orange" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-2">
-                    {index === 0 ? "Hackathon Winner" : index === 1 ? "Tech Innovation Award" : "Top Game Developer"}
-                  </h3>
-                  <p className="text-white/70">
-                    {index === 0 
-                      ? "First place at CodeCraft 2022 Hackathon for developing an innovative game in 48 hours."
-                      : index === 1 
-                        ? "Recognized for creating a unique procedural generation algorithm for game environments."
-                        : "Featured in 'Rising Developers 2023' for contribution to indie game development."}
-                  </p>
                 </motion.div>
               ))}
             </div>
