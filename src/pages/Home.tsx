@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
 import AnimatedHeading from '../components/AnimatedHeading';
-import HP from '../src/assets/images/Home.jpg'
+import HP from '../assets/images/Home.jpg'
 
 interface HomeProps {
   onHover: (isHovered: boolean) => void;
