@@ -18,6 +18,7 @@ const Footer = ({ onHover }: FooterProps) => {
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Portfolio', path: '/portfolio' },
+    { name: 'Achievements', path: '/achievements' },
     { name: 'Contact', path: '/contact' },
   ];
 

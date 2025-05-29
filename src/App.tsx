@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Portfolio from './pages/Portfolio';
 import Contact from './pages/Contact';
+import Achievements from './pages/Achievements';
 
 // Components
 import Navbar from './components/Navbar';
@@ -53,6 +54,7 @@ function App() {
             <Route path="/" element={<Home onHover={handleCursorHover} />} />
             <Route path="/about" element={<About onHover={handleCursorHover} />} />
             <Route path="/portfolio" element={<Portfolio onHover={handleCursorHover} />} />
+            <Route path="/achievements" element={<Achievements onHover={handleCursorHover} />} />
             <Route path="/contact" element={<Contact onHover={handleCursorHover} />} />
           </Routes>
         </AnimatePresence>

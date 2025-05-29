@@ -31,6 +31,7 @@ const Navbar = ({ onHover }: NavbarProps) => {
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Projects', path: '/portfolio' },
+    { name: 'Achievements', path: '/achievements' },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -149,6 +150,6 @@ const Navbar = ({ onHover }: NavbarProps) => {
       </motion.div>
     </header>
   );
-};
+}
 
-export default Navbar;
+export default Navbar
