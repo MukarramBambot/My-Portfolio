@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Code, Lightbulb, GraduationCap } from 'lucide-react';
 import PageTransition from '../components/PageTransition';
 import SkillBar from '../components/SkillBar';
+import MB from '../src/assets/images/MB.jpg'
 
 interface AboutProps {
   onHover: (isHovered: boolean) => void;
@@ -68,7 +69,7 @@ const About = ({ onHover }: AboutProps) => {
             >
               <div className="relative w-full max-w-md mx-auto lg:mx-0 aspect-[4/5] rounded-lg overflow-hidden border border-white/10 neon-border">
                 <img 
-                  src="../src/assets/images/MB.jpg" 
+                  src={MB} 
                   alt="Mukarram Bambot" 
                   className="w-full h-full object-cover"
                 />
