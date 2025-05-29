@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
 import AnimatedHeading from '../components/AnimatedHeading';
+import HP from '../src/assets/images/Home.jpg'
 
 interface HomeProps {
   onHover: (isHovered: boolean) => void;
@@ -91,7 +92,7 @@ const Home = ({ onHover }: HomeProps) => {
             >
               <div className="relative w-full h-[400px] md:h-[500px] rounded-lg overflow-hidden border border-white/10 neon-border">
                 <img 
-                  src="../src/assets/images/Home.jpg" 
+                  src={HP} 
                   alt="Developer workspace with computer screens showing game development" 
                   className="w-full h-full object-cover"
                 />
