@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Send } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { supabase } from '../lib/supabase';
 
 interface ContactFormProps {
   onHover: (isHovered: boolean) => void;
@@ -21,29 +22,46 @@ const ContactForm = ({ onHover }: ContactFormProps) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
+
+  const sendToWhatsApp = async (data: typeof formData) => {
+    const message = `New Contact Form Submission\n\nName: ${data.name}\nEmail: ${data.email}\nSubject: ${data.subject}\n\nMessage:\n${data.message}`;
+    const whatsappUrl = `https://wa.me/918925769787?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus('success');
+    try {
+      // Save to Supabase
+      const { error } = await supabase
+        .from('contact_messages')
+        .insert([formData]);
+
+      if (error) throw error;
+
+      // Send to WhatsApp
+      await sendToWhatsApp(formData);
       
-      // Reset form after successful submission
+      setSubmitStatus('success');
       setFormData({
         name: '',
         email: '',
         subject: '',
         message: ''
       });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
       
-      // Clear success message after 5 seconds
+      // Clear status after 5 seconds
       setTimeout(() => {
         setSubmitStatus(null);
       }, 5000);
-    }, 1500);
+    }
   };
 
   return (
@@ -66,6 +84,19 @@ const ContactForm = ({ onHover }: ContactFormProps) => {
           </motion.div>
           <h3 className="text-xl font-semibold mb-2">Message Sent Successfully!</h3>
           <p className="text-white/70">Thank you for reaching out. I'll get back to you soon.</p>
+        </div>
+      ) : submitStatus === 'error' ? (
+        <div className="text-center py-10">
+          <motion.div 
+            className="inline-block p-4 rounded-full bg-red-500/20 text-red-500 mb-4"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ type: "spring", stiffness: 200, damping: 10 }}
+          >
+            <Send size={32} />
+          </motion.div>
+          <h3 className="text-xl font-semibold mb-2">Oops! Something went wrong</h3>
+          <p className="text-white/70">Please try again or contact directly via WhatsApp.</p>
         </div>
       ) : (
         <form onSubmit={handleSubmit}>
