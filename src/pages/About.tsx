@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Code, Lightbulb, GraduationCap } from 'lucide-react';
+import { GraduationCap, Briefcase } from 'lucide-react';
 import PageTransition from '../components/PageTransition';
 import SkillBar from '../components/SkillBar';
 import MB from '../assets/images/MB.jpg'
@@ -21,9 +21,22 @@ const About = ({ onHover }: AboutProps) => {
 
   const experiences = [
     {
+      year: "2025",
+      title: "Full Stack Developer (Python) Intern",
+      company: "VCodez • Chennai",
+      type: "work",
+      description: [
+        "Developed full-stack web applications using ReactJS for frontend and Python for backend logic.",
+        "Built 'AluOptimize', an industrial aluminum manufacturing optimization platform focusing on waste reduction and energy efficiency.",
+        "Completed 19+ technical assessments and mini-projects including Tkinter-based desktop apps and MySQL database integrations.",
+        "Utilized Git & GitHub for version control and collaborative task management."
+      ]
+    },
+    {
       year: "2022 - 2025",
       title: "BCA Student",
       company: "Patrician College of Arts and Science",
+      type: "education",
       description: "Pursuing Bachelor of Computer Applications."
     }
   ];
@@ -33,14 +46,14 @@ const About = ({ onHover }: AboutProps) => {
       <section className="pt-24 pb-16 min-h-screen relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 grid-pattern opacity-30"></div>
-        
+
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="absolute top-1/3 left-[-10%] w-[600px] h-[600px] bg-accent-purple/10 rounded-full blur-[150px]"></div>
         </div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <motion.h1 
+            <motion.h1
               className="text-4xl md:text-5xl font-poppins font-bold gradient-text mb-4"
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -49,7 +62,7 @@ const About = ({ onHover }: AboutProps) => {
             >
               About Me
             </motion.h1>
-            <motion.div 
+            <motion.div
               className="w-24 h-1 bg-accent-cyan mx-auto rounded-full"
               initial={{ width: 0 }}
               whileInView={{ width: 96 }}
@@ -57,10 +70,10 @@ const About = ({ onHover }: AboutProps) => {
               viewport={{ once: true }}
             ></motion.div>
           </div>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
             {/* Image */}
-            <motion.div 
+            <motion.div
               className="relative"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -68,16 +81,16 @@ const About = ({ onHover }: AboutProps) => {
               viewport={{ once: true }}
             >
               <div className="relative w-full max-w-md mx-auto lg:mx-0 aspect-[4/5] rounded-lg overflow-hidden border border-white/10 neon-border">
-                <img 
-                  src={MB} 
-                  alt="Mukarram Bambot" 
+                <img
+                  src={MB}
+                  alt="Mukarram Bambot"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/30 to-transparent"></div>
               </div>
-              
+
               {/* Experience badge */}
-              <motion.div 
+              <motion.div
                 className="absolute -bottom-6 -right-6 md:bottom-8 md:right-8 p-4 bg-dark-200 rounded-lg border border-accent-purple/30 shadow-lg"
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
@@ -90,7 +103,7 @@ const About = ({ onHover }: AboutProps) => {
                 </div>
               </motion.div>
             </motion.div>
-            
+
             {/* Content */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
@@ -108,7 +121,7 @@ const About = ({ onHover }: AboutProps) => {
                 With over 5 years of coding experience, I've developed numerous projects ranging from simple games
                 to complex software solutions. I'm constantly exploring new technologies and pushing my creative boundaries.
               </p>
-              
+
               {/* Stats */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                 <div className="bg-dark-200 p-4 rounded-lg border border-white/5 text-center">
@@ -128,9 +141,9 @@ const About = ({ onHover }: AboutProps) => {
                   <span className="text-white/70 text-sm">Clients</span>
                 </div>
               </div>
-              
-              <Link 
-                to="/contact" 
+
+              <Link
+                to="/contact"
                 className="btn-primary"
                 onMouseEnter={() => onHover(true)}
                 onMouseLeave={() => onHover(false)}
@@ -139,10 +152,10 @@ const About = ({ onHover }: AboutProps) => {
               </Link>
             </motion.div>
           </div>
-          
+
           {/* Skills Section */}
           <div className="mb-20">
-            <motion.h2 
+            <motion.h2
               className="text-3xl font-poppins font-bold mb-8 relative pb-3 inline-block
               after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-1 
               after:bg-gradient-to-r after:from-accent-cyan after:to-accent-purple"
@@ -153,10 +166,10 @@ const About = ({ onHover }: AboutProps) => {
             >
               My Skills
             </motion.h2>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {skills.map((skill, index) => (
-                <SkillBar 
+                <SkillBar
                   key={index}
                   name={skill.name}
                   percentage={skill.percentage}
@@ -165,10 +178,10 @@ const About = ({ onHover }: AboutProps) => {
               ))}
             </div>
           </div>
-          
+
           {/* Experience Timeline */}
           <div>
-            <motion.h2 
+            <motion.h2
               className="text-3xl font-poppins font-bold mb-8 relative pb-3 inline-block
               after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-1 
               after:bg-gradient-to-r after:from-accent-cyan after:to-accent-purple"
@@ -179,24 +192,41 @@ const About = ({ onHover }: AboutProps) => {
             >
               Experience & Education
             </motion.h2>
-            
-            <div className="relative border-l-2 border-accent-cyan/30 pl-8 ml-4">
+
+            <div className="relative border-l-2 border-accent-cyan/30 pl-12 ml-4">
               {experiences.map((exp, index) => (
-                <motion.div 
-                  key={index} 
+                <motion.div
+                  key={index}
                   className="mb-12 relative"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <div className="absolute -left-12 w-8 h-8 bg-dark-200 rounded-full border-2 border-accent-cyan flex items-center justify-center">
-                    <GraduationCap size={16} className="text-accent-cyan" />
+                  <div className={`absolute -left-16 w-8 h-8 bg-dark-200 rounded-full border-2 
+                    ${exp.type === 'work' ? 'border-accent-purple' : 'border-accent-cyan'} 
+                    flex items-center justify-center`}>
+                    {exp.type === 'work' ? (
+                      <Briefcase size={14} className="text-accent-purple" />
+                    ) : (
+                      <GraduationCap size={16} className="text-accent-cyan" />
+                    )}
                   </div>
-                  <span className="text-sm text-accent-cyan font-medium">{exp.year}</span>
+                  <span className={`block mb-1 text-sm font-medium ${exp.type === 'work' ? 'text-accent-purple' : 'text-accent-cyan'}`}>
+                    {exp.year}
+                  </span>
                   <h3 className="text-xl font-bold mt-1">{exp.title}</h3>
-                  <p className="text-white/70 mb-2">{exp.company}</p>
-                  <p className="text-white/60">{exp.description}</p>
+                  <p className="text-white/70 mb-3">{exp.company}</p>
+
+                  {Array.isArray(exp.description) ? (
+                    <ul className="list-disc list-inside text-white/60 space-y-1 ml-1">
+                      {exp.description.map((item, i) => (
+                        <li key={i} className="pl-1 -indent-1.5 ml-1.5">{item}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-white/60">{exp.description}</p>
+                  )}
                 </motion.div>
               ))}
             </div>
