@@ -7,6 +7,8 @@ import ProjectCard, { Project } from '../components/ProjectCard';
 import patricDashboard from '../assets/images/patric_hall_booking_dashboard.png';
 import aluDashboard from '../assets/images/aluoptimize_dashboard.png';
 import sSafeInterface from '../assets/images/s_safe_security_interface.png';
+import brandIdentityImage from '../assets/images/1.png';
+import cafeConceptPdf from '../assets/pdfs/GD1.pdf';
 
 interface PortfolioProps {
   onHover: (isHovered: boolean) => void;
@@ -107,6 +109,15 @@ const allProjects: Project[] = [
     tags: ["AI", "Security", "FastAPI"],
     category: "AI/ML",
     githubUrl: "https://github.com/MukarramBambot/S-SAFE-Student-Scam-Fraud-Eliminator"
+  },
+  {
+    id: 11,
+    title: "Brand Identity & Promotional Design – Café Concept",
+    description: "Designed a café promotional graphic using Adobe Illustrator, focusing on clean layout, typography, and visual hierarchy. Created a cohesive brand presentation including brand name, tagline, product illustration, and call-to-action. Focused on print-ready vector artwork and professional visual consistency.",
+    image: brandIdentityImage,
+    tags: ["Adobe Illustrator", "Branding", "Typography", "Print Design"],
+    category: "Visual Design",
+    liveUrl: cafeConceptPdf
   }
 ];
 
@@ -182,8 +193,7 @@ const Portfolio = ({ onHover }: PortfolioProps) => {
 
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            layout
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.3 }}
           >
             {filteredProjects.map((project) => (
               <ProjectCard key={project.id} project={project} onHover={onHover} />
